@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>LifeDrop NGO | Every Drop Saves a Life</title>
+  <meta name="description" content="LifeDrop is a community NGO organising blood donation camps and social welfare programs in West Bengal. Find a camp, donate or volunteer.">
+  <meta property="og:title" content="LifeDrop NGO | Every Drop Saves a Life">
+  <meta property="og:description" content="Find upcoming blood donation camps, become a donor or volunteer.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%E2%9D%A4%3C/text%3E%3C/svg%3E">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">
+      <span>❤</span> LifeDrop
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="/" target="_self" class="active">Home</a></li>
+      <li><a href="/story" target="_self">Our Story</a></li>
+      <li><a href="/contact" target="_self">Contact Us</a></li>
+      <li><a href="/admin" target="_self">Admin</a></li>
+    </ul>
+
+    <a href="#donate" class="nav-btn">Donate Now</a>
+  </nav>
+
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+
+    <div class="hero-content">
+      <p class="small-title">WELCOME TO LIFEDROP NGO</p>
+
+      <h1>
+        <span class="plain-line" data-s="hero_title_1">Every Drop of Blood</span>
+        <span data-s="hero_title_2">Can Save a Life.</span>
+      </h1>
+
+      <p data-s="hero_text">
+        Together, we can create hope, save lives and build
+        a stronger community through blood donation and social service.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#camps" class="btn primary-btn">Explore Camps</a>
+        <a href="/contact" target="_self" class="btn secondary-btn">Join Our Mission</a>
+      </div>
+    </div>
+
+
+    <div class="hero-image">
+      <div class="image-circle"></div>
+
+      <div class="blood-card">
+        <div class="blood-icon">🩸</div>
+        <div>
+          <h3>Donate Blood</h3>
+          <p>Be someone's hero today</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- STATS -->
+  <section class="stats">
+
+    <div class="stat-card">
+      <h2 data-s="stat_donors">10K+</h2>
+      <p>Blood Donors</p>
+    </div>
+
+    <div class="stat-card">
+      <h2 data-s="stat_lives">500+</h2>
+      <p>Lives Supported</p>
+    </div>
+
+    <div class="stat-card">
+      <h2 data-s="stat_camps">25+</h2>
+      <p>Donation Camps</p>
+    </div>
+
+    <div class="stat-card">
+      <h2 data-s="stat_volunteers">100+</h2>
+      <p>Volunteers</p>
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+  <section class="about">
+
+    <div class="about-image">
+      <div class="about-main-image">
+        ❤️
+      </div>
+
+      <div class="experience-card">
+        <h2 data-s="years_of_service">5+</h2>
+        <p>Years of<br>Service</p>
+      </div>
+    </div>
+
+
+    <div class="about-content">
+
+      <p class="section-tag">WHO WE ARE</p>
+
+      <h2>
+        Small Actions.
+        <span>Big Impact.</span>
+      </h2>
+
+      <p data-s="about_text_1">
+        LifeDrop is a community-driven NGO dedicated to helping
+        people through blood donation camps, awareness programs
+        and social welfare activities.
+      </p>
+
+      <p data-s="about_text_2">
+        Our mission is simple — connect donors with those in need
+        and create a world where help is always within reach.
+      </p>
+
+      <a href="/story" target="_self" class="btn primary-btn">
+        Read Our Story →
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- BLOOD CAMPS -->
+  <section class="camps" id="camps">
+
+    <div class="section-heading">
+      <p class="section-tag">OUR EVENTS</p>
+      <h2>Upcoming Blood Donation Camps</h2>
+      <p>
+        Join our upcoming camps and become a hero for someone in need.
+      </p>
+    </div>
+
+
+    <!-- HORIZONTAL SCROLL -->
+    <div class="camp-scroll" id="campContainer">
+      <p class="loading-camps">Loading upcoming camps...</p>
+    </div>
+
+  </section>
+
+
+    <!-- GALLERY (photos managed from Admin Panel > Gallery) -->
+  <section class="gallery" id="gallery" hidden>
+
+    <div class="section-heading">
+      <p class="section-tag">OUR MOMENTS</p>
+      <h2>Photo Gallery</h2>
+      <p>Glimpses from our camps and community work.</p>
+    </div>
+
+    <div class="gallery-grid" id="galleryGrid"></div>
+
+  </section>
+
+
+  <!-- WHY US -->
+  <section class="why">
+
+    <div class="section-heading">
+      <p class="section-tag">MAKE A DIFFERENCE</p>
+      <h2>Why Join Our Mission?</h2>
+    </div>
+
+
+    <div class="why-grid">
+
+      <div class="why-card">
+        <div class="why-icon">🩸</div>
+        <h3>Save Lives</h3>
+        <p>
+          One blood donation can help save multiple lives.
+        </p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">🤝</div>
+        <h3>Build Community</h3>
+        <p>
+          Connect with people who want to create positive change.
+        </p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">🌍</div>
+        <h3>Create Impact</h3>
+        <p>
+          Your contribution creates real change in your community.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- DONATE SECTION -->
+  <section class="donate" id="donate">
+
+    <div>
+      <p class="section-tag">SUPPORT OUR MISSION</p>
+
+      <h2>
+        Your Support Can
+        <span>Change a Life.</span>
+      </h2>
+
+      <p>
+        Every contribution helps us organize camps and support people
+        in need.
+      </p>
+
+      <a href="/contact" target="_self" class="btn white-btn">
+        Donate & Support Us
+      </a>
+    </div>
+
+    <div class="big-heart">❤</div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div>
+      <h2>❤ LifeDrop</h2>
+      <p data-s="footer_tagline">Every drop matters. Every life matters.</p>
+      <div class="social-links">
+        <a data-s-link="facebook" hidden target="_blank" rel="noopener">Facebook</a>
+        <a data-s-link="instagram" hidden target="_blank" rel="noopener">Instagram</a>
+        <a data-s-link="youtube" hidden target="_blank" rel="noopener">YouTube</a>
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <a href="/" target="_self">Home</a>
+      <a href="/story" target="_self">Our Story</a>
+      <a href="/contact" target="_self">Contact</a>
+      <a href="/admin" target="_self">Admin</a>
+    </div>
+
+    <p>© 2026 LifeDrop NGO. All Rights Reserved.</p>
+
+  </footer>
+
+
+  <!-- WHATSAPP BUTTON -->
+  <a href="#" class="whatsapp" hidden data-s-show="whatsapp" data-s-href="whatsapp" data-s-prefix="https://wa.me/" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
+
+
+  <script src="config.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

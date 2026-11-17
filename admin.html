@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | LifeDrop NGO</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="dashboard-body">
+
+    <!-- ================= LOGIN ================= -->
+    <div class="login-screen" id="loginScreen" hidden>
+        <form class="login-card" id="loginForm">
+            <div class="logo" style="margin-bottom:18px"><span>❤</span> LifeDrop</div>
+            <h1>Admin Login</h1>
+            <p class="muted">Sign in to manage your website.</p>
+            <div class="field">
+                <label for="loginUser">Username</label>
+                <input id="loginUser" type="text" autocomplete="username" required>
+            </div>
+            <div class="field">
+                <label for="loginPass">Password</label>
+                <input id="loginPass" type="password" autocomplete="current-password" required>
+            </div>
+            <button class="btn-admin" style="width:100%" type="submit">Login</button>
+            <p class="hint" style="margin-top:14px"><a href="/" target="_self" style="color:#e63946">← Back to website</a></p>
+        </form>
+    </div>
+
+    <!-- ================= APP ================= -->
+    <div class="dashboard" id="app" hidden>
+
+        <aside class="sidebar">
+            <div class="sidebar-logo">❤ LifeDrop</div>
+
+            <a data-view="dashboard" class="side-link active-side">📊 Dashboard</a>
+            <a data-view="camps">🩸 Blood Camps</a>
+            <a data-view="gallery">🖼 Gallery</a>
+            <a data-view="messages">✉ Messages <span class="nav-count" id="navMsgCount" hidden>0</span></a>
+            <a data-view="donors">👥 Donors</a>
+            <a data-view="volunteers">🙋 Volunteers</a>
+            <a data-view="settings">⚙ Site Settings</a>
+            <a data-view="account">🔑 Account</a>
+            <a href="/" target="_self">🌐 View Website</a>
+
+            <div class="logout" id="logoutBtn">🚪 Logout</div>
+        </aside>
+
+        <main class="dashboard-main">
+
+            <div class="dashboard-header">
+                <div>
+                    <p>WELCOME BACK</p>
+                    <h1 id="pageTitle">Admin Dashboard</h1>
+                </div>
+                <div class="admin-profile">
+                    <div class="profile-circle" id="adminInitial">A</div>
+                    <span id="adminName">Admin</span>
+                </div>
+            </div>
+
+            <!-- ============ DASHBOARD ============ -->
+            <section class="view" id="view-dashboard">
+                <div class="dashboard-stats">
+                    <div class="dashboard-card"><div><p>Total Donors</p><h2 id="statDonors">–</h2></div><span>🩸</span></div>
+                    <div class="dashboard-card"><div><p>Camps (Upcoming / Total)</p><h2 id="statCamps">–</h2></div><span>🏕</span></div>
+                    <div class="dashboard-card"><div><p>Volunteers</p><h2 id="statVolunteers">–</h2></div><span>👥</span></div>
+                    <div class="dashboard-card"><div><p>Unread Messages</p><h2 id="statMessages">–</h2></div><span>✉</span></div>
+                </div>
+
+                <div class="dashboard-content">
+                    <div class="activity-section">
+                        <div class="content-header">
+                            <h2>Latest Messages</h2>
+                            <button data-go="messages">View All</button>
+                        </div>
+                        <div id="recentMessages"></div>
+                    </div>
+
+                    <div class="quick-actions">
+                        <h2>Quick Actions</h2>
+                        <button data-go="camps" data-focus="campTitle">+ Add New Camp</button>
+                        <button data-go="donors" data-focus="donorName">+ Add Donor</button>
+                        <button data-go="volunteers" data-focus="volName">+ Add Volunteer</button>
+                        <button data-go="gallery">📷 Upload Photos</button>
+                        <button data-go="settings">⚙ Edit Contact / QR</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ CAMPS ============ -->
+            <section class="view" id="view-camps" hidden>
+                <div class="panel">
+                    <h2 id="campFormTitle">Add New Camp</h2>
+                    <form id="campForm">
+                        <input type="hidden" id="campId">
+                        <div class="form-grid">
+                            <div class="field"><label for="campTitle">Camp title *</label><input id="campTitle" required maxlength="200"></div>
+                            <div class="field"><label for="campDate">Date *</label><input id="campDate" type="date" required></div>
+                            <div class="field full"><label for="campLocation">Location *</label><input id="campLocation" required maxlength="255"></div>
+                            <div class="field full"><label for="campDesc">Description</label><textarea id="campDesc"></textarea></div>
+                            <div class="field full">
+                                <label>Camp photo</label>
+                                <div class="img-picker">
+                                    <div class="img-preview" id="campPreview">No photo</div>
+                                    <div>
+                                        <input type="file" id="campFile" accept="image/png,image/jpeg,image/webp,image/gif">
+                                        <p class="hint">JPG / PNG / WEBP, max 5 MB.</p>
+                                        <button type="button" class="btn-admin btn-ghost btn-sm" id="campRemoveImg" hidden style="margin-top:8px">Remove photo</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn-admin" type="submit" id="campSave">Save Camp</button>
+                            <button class="btn-admin btn-ghost" type="button" id="campCancel" hidden>Cancel edit</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="panel">
+                    <h2>All Camps</h2>
+                    <div class="table-wrap" id="campList"></div>
+                </div>
+            </section>
+
+            <!-- ============ GALLERY ============ -->
+            <section class="view" id="view-gallery" hidden>
+                <div class="panel">
+                    <h2>Upload Photos</h2>
+                    <form id="galleryForm">
+                        <div class="form-grid">
+                            <div class="field"><label for="galleryFiles">Photos * (you can pick many)</label><input type="file" id="galleryFiles" accept="image/png,image/jpeg,image/webp,image/gif" multiple required></div>
+                            <div class="field"><label for="galleryCaption">Caption (optional)</label><input id="galleryCaption" maxlength="255" placeholder="e.g. Asansol camp, Oct 2026"></div>
+                        </div>
+                        <div class="form-actions"><button class="btn-admin" type="submit" id="gallerySave">Upload</button></div>
+                    </form>
+                </div>
+                <div class="panel">
+                    <h2>Gallery</h2>
+                    <div id="galleryList"></div>
+                </div>
+            </section>
+
+            <!-- ============ MESSAGES ============ -->
+            <section class="view" id="view-messages" hidden>
+                <div class="panel"><h2>Contact Form Messages</h2><div id="messageList"></div></div>
+            </section>
+
+            <!-- ============ DONORS ============ -->
+            <section class="view" id="view-donors" hidden>
+                <div class="panel">
+                    <h2>Add Donor</h2>
+                    <form id="donorForm">
+                        <div class="form-grid">
+                            <div class="field"><label for="donorName">Name *</label><input id="donorName" required></div>
+                            <div class="field"><label for="donorPhone">Phone *</label><input id="donorPhone" required></div>
+                            <div class="field"><label for="donorGroup">Blood group *</label>
+                                <select id="donorGroup" required>
+                                    <option value="">Select</option>
+                                    <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+                                    <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
+                                </select></div>
+                            <div class="field"><label for="donorEmail">Email</label><input id="donorEmail" type="email"></div>
+                        </div>
+                        <div class="form-actions"><button class="btn-admin" type="submit">Add Donor</button></div>
+                    </form>
+                </div>
+                <div class="panel"><h2>All Donors</h2><div class="table-wrap" id="donorList"></div></div>
+            </section>
+
+            <!-- ============ VOLUNTEERS ============ -->
+            <section class="view" id="view-volunteers" hidden>
+                <div class="panel">
+                    <h2>Add Volunteer</h2>
+                    <form id="volForm">
+                        <div class="form-grid">
+                            <div class="field"><label for="volName">Name *</label><input id="volName" required></div>
+                            <div class="field"><label for="volPhone">Phone *</label><input id="volPhone" required></div>
+                            <div class="field full"><label for="volEmail">Email</label><input id="volEmail" type="email"></div>
+                        </div>
+                        <div class="form-actions"><button class="btn-admin" type="submit">Add Volunteer</button></div>
+                    </form>
+                </div>
+                <div class="panel"><h2>All Volunteers</h2><div class="table-wrap" id="volList"></div></div>
+            </section>
+
+            <!-- ============ SITE SETTINGS ============ -->
+            <section class="view" id="view-settings" hidden>
+                <form class="panel" id="settingsForm">
+
+                    <h3>📞 Contact details <span class="muted">(Contact page)</span></h3>
+                    <div class="form-grid">
+                        <div class="field"><label>Phone number (shown on site)</label><input data-setting="phone" placeholder="+91 98765 43210"></div>
+                        <div class="field"><label>WhatsApp number</label><input data-setting="whatsapp" placeholder="919876543210">
+                            <p class="hint">Digits only with country code. The green WhatsApp button on the home page appears only when this is filled.</p></div>
+                        <div class="field"><label>Email address</label><input data-setting="email" type="email" placeholder="ngo@example.com"></div>
+                        <div class="field"><label>Address</label><input data-setting="address"></div>
+                    </div>
+
+                    <h3>📱 Donation QR code</h3>
+                    <div class="img-picker">
+                        <div class="img-preview qr" id="qrPreview">No QR</div>
+                        <div>
+                            <input type="hidden" data-setting="qr_image" id="qrValue">
+                            <input type="file" id="qrFile" accept="image/png,image/jpeg,image/webp,image/gif">
+                            <p class="hint">Upload your UPI / payment QR image. It shows on the Contact page.</p>
+                            <button type="button" class="btn-admin btn-ghost btn-sm" id="qrRemove" hidden style="margin-top:8px">Remove QR</button>
+                        </div>
+                    </div>
+                    <div class="form-grid" style="margin-top:16px">
+                        <div class="field"><label>UPI ID (optional)</label><input data-setting="upi_id" placeholder="name@bank"></div>
+                    </div>
+
+                    <h3>🔗 Social media links <span class="muted">(shown in footer when filled)</span></h3>
+                    <div class="form-grid">
+                        <div class="field"><label>Facebook</label><input data-setting="facebook" type="url" placeholder="https://facebook.com/..."></div>
+                        <div class="field"><label>Instagram</label><input data-setting="instagram" type="url" placeholder="https://instagram.com/..."></div>
+                        <div class="field"><label>YouTube</label><input data-setting="youtube" type="url" placeholder="https://youtube.com/..."></div>
+                    </div>
+
+                    <h3>🏠 Home page</h3>
+                    <div class="form-grid">
+                        <div class="field"><label>Hero title – line 1</label><input data-setting="hero_title_1"></div>
+                        <div class="field"><label>Hero title – line 2 (red)</label><input data-setting="hero_title_2"></div>
+                        <div class="field full"><label>Hero text</label><textarea data-setting="hero_text"></textarea></div>
+                        <div class="field"><label>Stat: Blood donors</label><input data-setting="stat_donors" placeholder="10K+"></div>
+                        <div class="field"><label>Stat: Lives supported</label><input data-setting="stat_lives" placeholder="500+"></div>
+                        <div class="field"><label>Stat: Donation camps</label><input data-setting="stat_camps" placeholder="25+"></div>
+                        <div class="field"><label>Stat: Volunteers</label><input data-setting="stat_volunteers" placeholder="100+"></div>
+                        <div class="field"><label>Years of service</label><input data-setting="years_of_service" placeholder="5+"></div>
+                        <div class="field full"><label>About – paragraph 1</label><textarea data-setting="about_text_1"></textarea></div>
+                        <div class="field full"><label>About – paragraph 2</label><textarea data-setting="about_text_2"></textarea></div>
+                    </div>
+
+                    <h3>📖 Our Story page</h3>
+                    <div class="form-grid">
+                        <div class="field full"><label>Story – paragraph 1</label><textarea data-setting="story_text_1"></textarea></div>
+                        <div class="field full"><label>Story – paragraph 2</label><textarea data-setting="story_text_2"></textarea></div>
+                    </div>
+
+                    <h3>🦶 Footer</h3>
+                    <div class="form-grid">
+                        <div class="field full"><label>Footer tagline</label><input data-setting="footer_tagline"></div>
+                    </div>
+
+                    <div class="form-actions"><button class="btn-admin" type="submit" id="settingsSave">Save All Changes</button></div>
+                    <p class="hint" style="margin-top:10px">Leave a text box empty to use the original default text.</p>
+                </form>
+            </section>
+
+            <!-- ============ ACCOUNT ============ -->
+            <section class="view" id="view-account" hidden>
+                <form class="panel" id="passwordForm" style="max-width:520px">
+                    <h2>Change Password</h2>
+                    <div class="field" style="margin-bottom:14px"><label for="curPass">Current password</label><input id="curPass" type="password" autocomplete="current-password" required></div>
+                    <div class="field" style="margin-bottom:14px"><label for="newPass">New password (min 8 characters)</label><input id="newPass" type="password" autocomplete="new-password" minlength="8" required></div>
+                    <div class="field"><label for="newPass2">Repeat new password</label><input id="newPass2" type="password" autocomplete="new-password" minlength="8" required></div>
+                    <div class="form-actions"><button class="btn-admin" type="submit">Update Password</button></div>
+                </form>
+            </section>
+
+        </main>
+    </div>
+
+    <div class="toast" id="toast"></div>
+    <script src="config.js"></script>
+    <script src="admin.js"></script>
+</body>
+
+</html>

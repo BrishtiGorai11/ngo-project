@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Us | LifeDrop NGO</title>
+    <meta name="description" content="Contact LifeDrop NGO, register as a blood donor or volunteer, and support our mission.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%E2%9D%A4%3C/text%3E%3C/svg%3E">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <span>❤</span> LifeDrop
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="/" target="_self">Home</a>
+            </li>
+
+            <li>
+                <a href="/story" target="_self">Our Story</a>
+            </li>
+
+            <li>
+                <a href="/contact" target="_self" class="active">
+                    Contact Us
+                </a>
+            </li>
+
+            <li>
+                <a href="/admin" target="_self">Admin</a>
+            </li>
+
+        </ul>
+
+        <a href="#payment" class="nav-btn">
+            Donate Now
+        </a>
+
+    </nav>
+
+
+    <section class="page-hero">
+
+        <p class="section-tag">GET IN TOUCH</p>
+
+        <h1>
+            Let's Create
+            <span>A Difference Together.</span>
+        </h1>
+
+        <p>
+            Have a question, want to volunteer or support our mission?
+            Contact us today.
+        </p>
+
+    </section>
+
+
+
+    <section class="contact-section">
+
+
+        <!-- CONTACT INFORMATION -->
+
+        <div class="contact-info">
+
+            <p class="section-tag">
+                CONTACT DETAILS
+            </p>
+
+            <h2>
+                We'd Love To
+                <span>Hear From You.</span>
+            </h2>
+
+
+            <div class="contact-box">
+
+                <div class="contact-icon">
+                    📍
+                </div>
+
+                <div>
+                    <h3>Our Location</h3>
+                    <p data-s="address">Asansol, West Bengal, India</p>
+                </div>
+
+            </div>
+
+
+            <div class="contact-box">
+
+                <div class="contact-icon">
+                    📞
+                </div>
+
+                <div>
+                    <h3>Phone / WhatsApp</h3>
+                    <p><a class="plain-link" data-s-href="phone" data-s-prefix="tel:" href="#"><span data-s="phone">+91 XXXXX XXXXX</span></a></p>
+                </div>
+
+            </div>
+
+
+            <div class="contact-box">
+
+                <div class="contact-icon">
+                    ✉
+                </div>
+
+                <div>
+                    <h3>Email Address</h3>
+                    <p><a class="plain-link" data-s-href="email" data-s-prefix="mailto:" href="#"><span data-s="email">yourngo@email.com</span></a></p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- FORM -->
+
+        <div class="contact-form">
+
+            <h2>Send Us A Message</h2>
+
+            <form id="contactForm">
+
+                <div class="input-group">
+
+                    <input id="contactName" name="name" type="text" placeholder="Your Name" required>
+
+                    <input id="contactEmail" name="email" type="email" placeholder="Your Email" required>
+
+                </div>
+
+
+                <input id="contactPhone" name="phone" type="tel" placeholder="Phone Number">
+
+
+                <select id="contactSubject" name="subject">
+
+                    <option value="" selected>
+                        Select Subject
+                    </option>
+
+                    <option>
+                        Blood Donation
+                    </option>
+
+                    <option>
+                        Volunteer
+                    </option>
+
+                    <option>
+                        Donation
+                    </option>
+
+                    <option>
+                        Other
+                    </option>
+
+                </select>
+
+
+                <textarea id="contactMessage" name="message" rows="6" maxlength="5000" placeholder="Write your message..." required></textarea>
+
+
+                <button type="submit" class="btn primary-btn">
+                    Send Message →
+                </button>
+
+                <p class="form-status" id="contactStatus" role="status" aria-live="polite"></p>
+
+            </form>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- JOIN AS DONOR / VOLUNTEER -->
+
+    <section class="join-section" id="join">
+
+        <div class="section-heading">
+            <p class="section-tag">JOIN US</p>
+            <h2>Become a Blood Donor or Volunteer</h2>
+            <p>Leave your details and our team will contact you about the next camp.</p>
+        </div>
+
+        <form class="join-form" id="joinForm">
+
+            <div class="join-toggle" role="radiogroup" aria-label="I want to join as">
+                <label><input type="radio" name="joinType" value="donor" checked> 🩸 Blood Donor</label>
+                <label><input type="radio" name="joinType" value="volunteer"> 🙋 Volunteer</label>
+            </div>
+
+            <div class="input-group">
+                <input id="joinName" type="text" placeholder="Full Name" required maxlength="150">
+                <input id="joinPhone" type="tel" placeholder="Phone Number" required minlength="7" maxlength="30">
+            </div>
+
+            <div class="input-group">
+                <input id="joinEmail" type="email" placeholder="Email (optional)">
+                <select id="joinGroup" aria-label="Blood group">
+                    <option value="">Blood Group</option>
+                    <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+                    <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn primary-btn">Register →</button>
+            <p class="form-status" id="joinStatus" role="status" aria-live="polite"></p>
+
+        </form>
+
+    </section>
+
+
+
+    <!-- QR PAYMENT SECTION -->
+
+    <section class="payment" id="payment">
+
+        <div class="payment-content">
+
+            <p class="section-tag">
+                SUPPORT OUR MISSION
+            </p>
+
+            <h2>
+                Donate With
+                <span>Love ❤️</span>
+            </h2>
+
+            <p>
+                Scan the QR code below to make your contribution
+                and support our NGO activities.
+            </p>
+
+
+            <div class="qr-box">
+
+                <!-- QR is managed from Admin Panel > Site Settings -->
+                <img id="qrImage" class="qr-image" alt="Payment QR code" data-s-src="qr_image" data-s-fallback="#fakeQr" hidden>
+                <div class="fake-qr" id="fakeQr">
+                    <span>SCAN</span>
+                    <strong>QR</strong>
+                </div>
+
+            </div>
+
+            <p class="upi-id" data-s-show="upi_id" hidden>UPI ID: <strong data-s="upi_id"></strong></p>
+
+            <div class="payment-note">
+
+                <div class="note-icon">
+                    📱
+                </div>
+
+                <p>
+                    After completing the payment, please send the
+                    payment screenshot to our WhatsApp number:
+                    <strong data-s="phone">+91 XXXXX XXXXX</strong>
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <footer>
+
+        <div>
+
+            <h2>
+                ❤ LifeDrop
+            </h2>
+
+            <p data-s="footer_tagline">Every drop matters. Every life matters.</p>
+      <div class="social-links">
+        <a data-s-link="facebook" hidden target="_blank" rel="noopener">Facebook</a>
+        <a data-s-link="instagram" hidden target="_blank" rel="noopener">Instagram</a>
+        <a data-s-link="youtube" hidden target="_blank" rel="noopener">YouTube</a>
+      </div>
+
+        </div>
+
+        <p>
+            © 2026 LifeDrop NGO. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
